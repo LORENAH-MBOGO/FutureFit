@@ -5,22 +5,33 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.skylar.futurefit.R;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import models.Doctor;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 import services.BetterDoctorService;
 
 public class DoctorActivity extends AppCompatActivity {
-    public static final String TAG = DoctorActivity.class.getSimpleName();
+    @BindView(R.id.listView)
+    ListView mListView;
+    public ArrayList<Doctor> mDoctors = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor);
+        ButterKnife.bind(this);
+
         Intent intent = getIntent();
         String specialty = intent.getStringExtra("specialty");
         getDoctors(specialty);
@@ -35,16 +46,23 @@ public class DoctorActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    String jsonData = response.body().string();
-                    Log.v(TAG, jsonData);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            public void onResponse(Call call, Response response) {
+                mDoctors = betterDoctorService.processResults(response);
+
+                DoctorActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        String[] doctorNames = new String[mDoctors.size()];
+                        for (int i = 0; i < doctorNames.length; i++) {
+                            doctorNames[i] = mDoctors.get(i).getName();
+                        }
+
+                        ArrayAdapter adapter = new ArrayAdapter(DoctorActivity.this, android.R.layout.simple_list_item_1, doctorNames);
+                        mListView.setAdapter(adapter);
+                    }
+                });
             }
         });
     }
 }
-
