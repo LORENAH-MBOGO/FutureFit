@@ -11,20 +11,19 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    @BindView(R.id.appointmentsButton)
-    Button mAppointmentsButton;
-    @BindView(R.id.loginButton)
-    Button mLoginButton;
-    @BindView(R.id.healthButton)
-    Button mHealthButton;
-    @BindView(R.id.aboutButton)
-    Button mAboutButton;
+  private   Button mAppointmentsButton, mLoginButton, mAboutButton, mHealthButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+         mAppointmentsButton = findViewById(R.id.appointmentsButton);
+         mLoginButton = findViewById(R.id.loginButton);
+         mHealthButton = findViewById(R.id.healthButton);
+         mAboutButton = findViewById(R.id.aboutButton);
+
         mAppointmentsButton.setOnClickListener(this);
         mLoginButton.setOnClickListener(this);
         mHealthButton.setOnClickListener(this);

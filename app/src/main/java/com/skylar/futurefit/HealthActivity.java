@@ -19,8 +19,8 @@ public class HealthActivity extends AppCompatActivity implements View.OnClickLis
     EditText mNewAilmentInput;
     @BindView(R.id.addAilmentButton)
     Button mAddAilmentButton;
-    @BindView(R.id.ailmentsListView)
-    ListView mAilmentsListView;
+
+    private  ListView mAilmentsListView;
 
     private final String[] ailments = new String[] {"Suspicious mole on arm", "Cannot fall asleep easily", "Cold that won't go away"};
     private final ArrayList<String> allUserAilments = new ArrayList<>();
@@ -30,6 +30,7 @@ public class HealthActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_health);
         ButterKnife.bind(this);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, ailments);
+        mAilmentsListView = findViewById(R.id.ailmentsListView);
         mAilmentsListView.setAdapter(adapter);
     }
         @Override

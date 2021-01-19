@@ -55,7 +55,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="About Check Up"
+        android:text="About Future-Fit"
         android:id="@+id/aboutButton"
         android:background="@color/colorAccent"
         android:textSize="20dp"
