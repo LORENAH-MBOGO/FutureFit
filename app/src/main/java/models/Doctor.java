@@ -3,15 +3,15 @@ package models;
 import java.util.ArrayList;
 
 public class Doctor {
-    private String mName;
+        private String mName;
         private String mSpecialty;
-        private String mPhone;
+        private ArrayList<String> mPhone = new ArrayList<>();
         private double mLatitude;
         private double mLongitude;
-        private ArrayList<String> mAddress = new ArrayList<>();
+        private String mAddress;
         private String mBio;
 
-        public Doctor(String name, String specialty, String phone, double latitude, double longitude, ArrayList<String> address, String bio) {
+    public Doctor(String name, String specialty, ArrayList<String> phone, double latitude, double longitude, String address, String bio) {
             this.mName = name;
             this.mSpecialty = specialty;
             this.mPhone = phone;
@@ -29,8 +29,8 @@ public class Doctor {
             return mSpecialty;
         }
 
-        public String getPhone() {
-            return mPhone;
+    public ArrayList<String> getPhone() {
+        return mPhone;
         }
 
         public double getLatitude() {
@@ -41,9 +41,9 @@ public class Doctor {
             return mLongitude;
         }
 
-        public ArrayList<String> getAddress() {
-            return mAddress;
-        }
+    public String getAddress() {
+        return mAddress;
+    }
 
         public String getBio() {
             return mBio;

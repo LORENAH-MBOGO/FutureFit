@@ -9,8 +9,6 @@ import android.widget.Button;
 
 import com.skylar.futurefit.R;
 
-import butterknife.ButterKnife;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
   private   Button mAppointmentsButton, mLoginButton, mAboutButton, mHealthButton;
 
@@ -18,7 +16,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
 
          mAppointmentsButton = findViewById(R.id.appointmentsButton);
          mLoginButton = findViewById(R.id.loginButton);
