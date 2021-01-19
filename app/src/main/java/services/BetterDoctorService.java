@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import models.Doctor;
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -21,7 +22,11 @@ public class BetterDoctorService{
             OkHttpClient client = new OkHttpClient.Builder()
                     .build();
 
-            String url = Constants.BETTER_DOCTOR_BASE_URL + specialty + "&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=" + Constants.USER_KEY;
+            HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.BETTER_DOCTOR_BASE_URL).newBuilder();
+            urlBuilder.addQueryParameter(Constants.BETTER_DOCTOR_SPECIALTY_QUERY_PARAMETER, specialty);
+            urlBuilder.addQueryParameter(Constants.BETTER_DOCTOR_LOCATION_QUERY_PARAMETER, "or-portland");
+            urlBuilder.addQueryParameter(Constants.API_KEY_QUERY_PARAMETER, Constants.USER_KEY);
+            String url = urlBuilder.build().toString();
 
             Request request = new Request.Builder()
                     .url(url)
@@ -57,7 +62,7 @@ public class BetterDoctorService{
                     ArrayList<String> phone = new ArrayList<>();
                     JSONArray phoneJSON = doctorJSON.getJSONArray("practices").getJSONObject(0).getJSONArray("phones");
                     for (int y = 0; y < phoneJSON.length(); y++) {
-                        phone.add(phoneJSON.get(y).toString());
+                        phone.add(phoneJSON.getJSONObject(y).getString("number"));
                     }
 
                     double latitude = doctorJSON.getJSONArray("practices").getJSONObject(0).getDouble("lat");

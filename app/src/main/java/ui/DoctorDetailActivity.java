@@ -5,6 +5,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
+import com.skylar.futurefit.DoctorPagerAdapter;
 import com.skylar.futurefit.R;
 
 import org.parceler.Parcels;
