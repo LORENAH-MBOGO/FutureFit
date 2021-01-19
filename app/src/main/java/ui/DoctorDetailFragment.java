@@ -1,5 +1,7 @@
 package ui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -24,8 +26,8 @@ import models.Doctor;
  * Use the {@link DoctorDetailFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DoctorDetailFragment extends Fragment {
-    
+public class DoctorDetailFragment extends Fragment implements View.OnClickListener {
+
         @BindView(R.id.doctorImageView)
         ImageView mImageLabel;
         @BindView(R.id.doctorNameTextView)
@@ -71,7 +73,16 @@ public class DoctorDetailFragment extends Fragment {
             mAddressLabel.setText(mDoctor.getAddress());
             mBioLabel.setText(mDoctor.getBio());
 
+            mAddressLabel.setOnClickListener(this);
+
             return view;
         }
+    @Override
+    public void onClick(View v) {
+        if(v == mAddressLabel) {
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:" + mDoctor.getLatitude() + "," + mDoctor.getLongitude() + "?q=(" + mDoctor.getName() + ")"));
+            startActivity(mapIntent);
+        }
     }
+
 }

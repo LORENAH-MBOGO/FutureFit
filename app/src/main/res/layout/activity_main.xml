@@ -28,7 +28,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="106dp"
         android:textSize="20dp"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"
+        android:layout_alignParentEnd="true"
+        android:textColor="@color/colorTextIcons" />
 
     <Button
         android:layout_width="match_parent"
@@ -36,10 +38,11 @@
         android:text="Login Placeholder"
         android:id="@+id/loginButton"
         android:textSize="20sp"
-        android:background="@color/colorSecondaryAccent"
         android:layout_above="@+id/aboutButton"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="50dp" />
+        android:layout_marginBottom="33dp"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorTextIcons" />
 
     <Button
         android:layout_width="match_parent"
@@ -50,7 +53,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="33dp"
         android:textSize="20dp"
-        android:background="@color/colorAccent" />
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorTextIcons" />
 
     <Button
         android:layout_width="match_parent"
@@ -62,7 +66,8 @@
         android:layout_above="@+id/healthButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="52dp" />
+        android:layout_marginBottom="52dp"
+        android:textColor="@color/colorTextIcons" />
 
 
 </RelativeLayout>
