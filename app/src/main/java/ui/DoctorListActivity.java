@@ -6,9 +6,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import com.skylar.futurefit.DoctorListAdapter;
 import com.skylar.futurefit.R;
@@ -24,7 +21,7 @@ import okhttp3.Callback;
 import okhttp3.Response;
 import services.BetterDoctorService;
 
-public class DoctorActivity extends AppCompatActivity {
+public class DoctorListActivity extends AppCompatActivity {
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
     public ArrayList<Doctor> mDoctors = new ArrayList<>();
@@ -53,13 +50,13 @@ public class DoctorActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) {
                 mDoctors = betterDoctorService.processResults(response);
 
-                DoctorActivity.this.runOnUiThread(new Runnable() {
+                DoctorListActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
 
                         mAdapter = new DoctorListAdapter(getApplicationContext(), mDoctors);
                         mRecyclerView.setAdapter(mAdapter);
-                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(DoctorActivity.this);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(DoctorListActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);
                         mRecyclerView.setHasFixedSize(true);
                     }
@@ -67,5 +64,4 @@ public class DoctorActivity extends AppCompatActivity {
             }
         });
     }
-}
 }
