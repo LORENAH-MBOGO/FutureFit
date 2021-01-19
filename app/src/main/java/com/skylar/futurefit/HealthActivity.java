@@ -5,17 +5,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class HealthActivity extends AppCompatActivity implements View.OnClickListener {
+    @BindView(R.id.newAilmentInput)
+    EditText mNewAilmentInput;
+    @BindView(R.id.addAilmentButton)
+    Button mAddAilmentButton;
     @BindView(R.id.ailmentsListView)
     ListView mAilmentsListView;
 
-    private String[] ailments = new String[] {"Suspicious mole on arm", "Cannot fall asleep easily", "Cold that won't go away"};
-
+    private final String[] ailments = new String[] {"Suspicious mole on arm", "Cannot fall asleep easily", "Cold that won't go away"};
+    private final ArrayList<String> allUserAilments = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
