@@ -1,4 +1,4 @@
-package com.skylar.futurefit;
+package ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+
+import com.skylar.futurefit.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

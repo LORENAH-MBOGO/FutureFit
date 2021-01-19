@@ -1,14 +1,16 @@
-package com.skylar.futurefit;
+package ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class AppointmentFormActivity extends AppCompatActivity {
+import com.skylar.futurefit.R;
+
+public class LogInActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_appointment_form);
+        setContentView(R.layout.activity_log_in);
     }
 }
