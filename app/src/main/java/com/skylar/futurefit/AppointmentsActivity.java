@@ -18,7 +18,7 @@ public class AppointmentsActivity extends AppCompatActivity implements View.OnCl
     @BindView(R.id.newAppointmentButton)
     Button mNewAppointmentButton;
 
-    private String[] appointments = new String[] {"Doctor A - Jan 1st 2017", "Doctor B - Feb 5th 2017", "Doctor C - Feb 19th 2017", "Doctor D - March 1st 2017"};
+    private String[] appointments = new String[] {"Doctor A - Jan 1st 2021", "Doctor B - Dec 5th 2020", "Doctor C - Nov 22nd 2020", "Doctor D - March 1st 2020"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
