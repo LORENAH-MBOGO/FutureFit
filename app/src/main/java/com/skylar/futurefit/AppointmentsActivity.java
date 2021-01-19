@@ -17,6 +17,8 @@ public class AppointmentsActivity extends AppCompatActivity implements View.OnCl
     ListView mAppointmentsListView;
     @BindView(R.id.newAppointmentButton)
     Button mNewAppointmentButton;
+    @BindView(R.id.findDoctorButton)
+    Button mFindDoctorButton;
 
     private String[] appointments = new String[] {"Doctor A - Jan 1st 2021", "Doctor B - Dec 5th 2020", "Doctor C - Nov 22nd 2020", "Doctor D - March 1st 2020"};
 
@@ -28,11 +30,16 @@ public class AppointmentsActivity extends AppCompatActivity implements View.OnCl
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, appointments);
         mAppointmentsListView.setAdapter(adapter);
         mNewAppointmentButton.setOnClickListener(this);
+        mFindDoctorButton.setOnClickListener(this);
     }
-
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(AppointmentsActivity.this, AppointmentFormActivity.class);
-        startActivity(intent);
+        if(v == mNewAppointmentButton) {
+            Intent intent = new Intent(AppointmentsActivity.this, AppointmentFormActivity.class);
+            startActivity(intent);
+        } else if (v == mFindDoctorButton) {
+            Intent intent = new Intent(AppointmentsActivity.this, FindDoctorActivity.class);
+            startActivity(intent);
+        }
     }
 }
