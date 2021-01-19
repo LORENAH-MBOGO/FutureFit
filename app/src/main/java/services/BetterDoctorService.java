@@ -8,7 +8,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 
 public class BetterDoctorService{
-        public static void findDoctorBySpecialty(String specialty, Callback callback) {
+        public static void findDoctorsBySpecialty(String specialty, Callback callback) {
             OkHttpClient client = new OkHttpClient.Builder()
                     .build();
 
