@@ -1,9 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayoutLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AboutActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="About Future-Fit"
+        android:id="@+id/aboutTitle"
+        android:textStyle="bold"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Future-Fit is a new amazing health tracking app. Keep track of your important health questions and concerns. Add those to your scheduled appointments and refer to them during your appointment. It is so easy to forget a question you wanted to ask your Doctor and it's too often that you only remember after the appointment! Future-Fit wants to help keep these records organized and available for you to make the most of your appointments! Future-Fit is meant to be used as a way to track these ailments, appointments, doctor's notes and smart reminders through your life to make you the healthiest and happiest you can be!"
+        android:id="@+id/textView2"
+        android:textSize="18dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textAlignment="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Future Image Here"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/aboutTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp" />
+
+</RelativeLayoutLayout>
