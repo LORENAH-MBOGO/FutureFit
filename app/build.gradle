@@ -23,7 +23,7 @@ android {
         }
     }
     buildTypes.each {
-        it.buildConfigField 'String', 'BETTER_DOCTOR_USER_KEY', BetterDoctorUserKey
+        it.buildConfigField 'String', 'USER_KEY', user_key
     }
 }
 
